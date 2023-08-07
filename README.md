@@ -1,6 +1,6 @@
-## API build in PHP
+# API build in PHP
 
-# Here are the learning objectives of the project
+## Here are the learning objectives of the project
 
 - Create as RESTful API
 - Use MVC pattern (without the v)
