@@ -7,7 +7,7 @@ class Controller {
         $postModel = new Post();
         $posts = $postModel->getAllPosts();
 
-        header('Content-Type: json');
+        header('Content-Type: application/json');
         echo json_encode($posts);
     }
 
