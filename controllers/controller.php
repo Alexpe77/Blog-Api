@@ -1,9 +1,14 @@
 <?php
+require_once './models/model.php';
 
 class Controller {
-    public function view($view, $data = []) {
-        extract($data);
-        // require_once(); // TODO : ADD CORRECT PATH
+    public function getAllPostsAsJSON()
+    {
+        $postModel = new Post();
+        $posts = $postModel->getAllPosts();
+
+        header('Content-Type: json');
+        echo json_encode($posts);
     }
 
     public function error404() {

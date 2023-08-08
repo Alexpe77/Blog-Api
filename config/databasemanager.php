@@ -2,8 +2,6 @@
 
 require_once 'database.php';
 
-use PDO; 
-
 class DatabaseManager{
     private static $instance;
 
@@ -12,7 +10,7 @@ class DatabaseManager{
 
             include 'database.php';
 
-            self::$instance = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
+            self::$instance = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPwd);
         }
 
         return self::$instance;

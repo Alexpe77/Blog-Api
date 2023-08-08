@@ -20,11 +20,7 @@ class Post
         $statement->execute();
 
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
+        
     }
 
-    public function getAllPostsAsJSON(){
-        $posts = $this->getAllPosts();
-        header('Content-Type: application/json');
-        echo json_encode($posts);
-    }
 }
