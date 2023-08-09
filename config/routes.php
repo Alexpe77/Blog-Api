@@ -9,6 +9,8 @@ require_once './controllers/controller.php';
 $controller = new Controller();
 $router = new Router();
 
+$router->get('/', [$controller, 'getAllPostsAsJSON']);
+
 $router->get('/posts', [$controller, 'getAllPostsAsJSON']);
 
 $router->get('/post/{id}', [$controller, 'getPostById']);
@@ -19,4 +21,4 @@ $router->put('/post/{id}', [$controller, 'updatePost']);
 
 $router->delete('/post/{id}', [$controller, 'deletePost']);
 
-$router->run();
+// $router->run();
