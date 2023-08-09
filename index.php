@@ -1,4 +1,4 @@
 <?php
 
-require 'config/routes.php';
+require_once 'config/routes.php';
 
