@@ -2,5 +2,4 @@
 /vendor
 composer.json
 composer.lock
-config/database.php
 .env

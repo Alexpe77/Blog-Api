@@ -11,12 +11,12 @@ $router = new Router();
 
 $router->get('/posts', [$controller, 'getAllPostsAsJSON']);
 
-$router->get('/post/:id', [$controller, 'getPostById']);
+$router->get('/post/{id}', [$controller, 'getPostById']);
 
 $router->post('/post', [$controller, 'createPost']);
 
-$router->put('/post/:id', [$controller, 'updatePost']);
+$router->put('/post/{id}', [$controller, 'updatePost']);
 
-$router->delete('/post/:id', [$controller, 'deletePost']);
+$router->delete('/post/{id}', [$controller, 'deletePost']);
 
 $router->run();
