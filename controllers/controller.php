@@ -30,6 +30,7 @@ class Controller
                     $postData['author']
                 );
                 header('Content-Type: application/json');
+                http_response_code(200);
                 echo json_encode(['message' => 'Post created successfully']);
             } else {
                 header('Content-Type: application/json');
@@ -43,9 +44,9 @@ class Controller
         }
     }
 
-    public function getPostById($postId)
+    public function getPostById($params)
     {
-        $postId = (int)$postId;
+        $postId = isset($params['0']) ? (int)$params['0'] : 0;
 
         if ($postId > 0) {
             $postModel = new Post();
@@ -56,7 +57,6 @@ class Controller
                 header('Content-Type: application/json');
                 echo json_encode($post);
             } else {
-
                 header('Content-Type: application/json');
                 http_response_code(404);
                 echo json_encode(['error' => 'Post not found']);

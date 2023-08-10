@@ -13,12 +13,10 @@ $router->get('/', [$controller, 'getAllPostsAsJSON']);
 
 $router->get('/posts', [$controller, 'getAllPostsAsJSON']);
 
-$router->get('/post/{id}', [$controller, 'getPostById']);
+$router->get('/post/(\d+)', [$controller, 'getPostById']);
 
 $router->post('/post', [$controller, 'createPost']);
 
-$router->put('/post/{id}', [$controller, 'updatePost']);
+$router->put('/post/(\d+)', [$controller, 'updatePost']);
 
-$router->delete('/post/{id}', [$controller, 'deletePost']);
-
-// $router->run();
+$router->delete('/post/(\d+)', [$controller, 'deletePost']);

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config/databasemanager.php';
+require_once './config/databasemanager.php';
 
 class Post
 {
@@ -27,7 +27,8 @@ class Post
         return $escapedRows;
     }
 
-    public function createPost($title, $body, $author) {
+    public function createPost($title, $body, $author)
+    {
 
         $query = "INSERT INTO posts (title, body, author) VALUES (:title, :body, :author)";
         $statement = $this->db->prepare($query);
@@ -37,15 +38,18 @@ class Post
         $statement->execute();
     }
 
-    public function getPostById($postId) {
+    public function getPostById($postId)
+    {
 
         $query = "SELECT id, title, body, author, created_at, updated_at FROM posts WHERE id = :id";
         $statement = $this->db->prepare($query);
         $statement->execute(['id' => $postId]);
+
         return $statement->fetch(\PDO::FETCH_ASSOC);
     }
 
-    public function updatePost($postId, $title, $body, $author) {
+    public function updatePost($postId, $title, $body, $author)
+    {
         $query = "UPDATE posts SET title = :title, body = :body, author = :author WHERE id = :id";
         $statement = $this->db->prepare($query);
         $statement->bindParam(':id', $postId, PDO::PARAM_INT);
@@ -55,11 +59,11 @@ class Post
         $statement->execute();
     }
 
-    public function deletePost($postId) {
+    public function deletePost($postId)
+    {
         $query = "DELETE FROM posts WHERE id = :id";
         $statement = $this->db->prepare($query);
         $statement->bindParam(':id', $postId, PDO::PARAM_INT);
         $statement->execute();
     }
-
 }
